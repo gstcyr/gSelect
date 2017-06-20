@@ -1,0 +1,78 @@
+.gList{
+    display:inline-block;
+    margin:0;
+    padding:0;
+    border-radius:3px;
+	border: 1px inset #717171;
+    list-style:none;
+    cursor: pointer;
+    min-width:150px;
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
+	font-family: arial;
+	font-size: 0.9em;
+	overflow-y:scroll;
+	background-color:white;
+}
+.gList li{
+    padding: 2px 0px 2px 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.gList li.optgroup{
+	padding:0px;
+}
+.gList li.optgroup div{
+	font-weight:bold;
+	padding:2px 0px 2px 4px;
+}
+
+.gList li.optgroup ul{
+	padding:0px;
+	font-weight:normal;
+}
+.gList li.optgroup ul li{
+	padding-left:8px;
+}
+.gList li.selected, .gList div.selected{
+    background-color: #DADADA !important;
+    box-shadow: 0px 1px 1px #BEBEBE;
+}
+.gList li.hovered{
+    background-color:#EDEDED;
+}
+/* Multiple Select Checkboxes */
+.gList[multiple] li:not(.optgroup)::before{
+	content:" ";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: 1px solid grey;
+	border-radius: 2px;
+    margin-right: 5px;
+    vertical-align:middle;
+	font-size: 14px;
+	line-height:7px;
+}
+.gList[multiple] li.selected:not(.optgroup)::before{
+	content:"\2713";
+    background:#17C7FF;
+    background: radial-gradient(ellipse at center, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* W3C */
+}
+/* Ellipses for drag and select */
+.gListEllipse{
+    position:absolute;
+    border:1px dashed black;
+    opacity:0.4;
+    background-color:aliceblue;
+	z-index:999999;
+}
+.gList li.highlighted, .gList li:not(.optgroup):hover,
+.gList li.optgroup div.selectable:hover {
+    background-color:#F2F7F9;
+}
